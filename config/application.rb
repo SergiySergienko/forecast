@@ -29,6 +29,9 @@ module Forecast
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.google_maps = config_for(:google_maps)
+    config.open_weather = config_for(:open_weather)
+
+    config.eager_load_paths << Rails.root.join("lib")
   end
 end

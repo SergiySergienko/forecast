@@ -1,1 +1,25 @@
-Hello world
+<% if @validator.errors.any? %>
+<div id="gmaps-error">
+    <ul>
+        <% @validator.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li> 
+        <% end %>
+    </ul>
+</div>
+<% end %>
+<%= form_with url: root_path, method: :get do |form| %>
+    <%= form.text_field :address, id: 'gmaps-input-address', value: params[:address] %>
+    <%= form.submit "Search" %>
+<% end %>
+<hr/>
+<% if @forecast_data %>
+  <strong><%= params[:address] %></strong>
+  <%= (@cache_flag ? 'From cache' : 'From API') %>
+  <ul>
+    <li>Temperature: <%= @forecast_data.temp %> °F</li>
+    <li>Min temp: <%= @forecast_data.temp_min %> °F</li>
+    <li>Max temp: <%= @forecast_data.temp_max %> °F</li>
+    <li>Feels like: <%= @forecast_data.feels_like %> °F</li>
+  </ul>
+
+<% end %>

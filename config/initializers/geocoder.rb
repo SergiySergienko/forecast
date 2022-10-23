@@ -1,0 +1,1 @@
+Geocoder.configure(lookup: :google_places_details, api_key: Rails.configuration.google_maps[:api_key])
