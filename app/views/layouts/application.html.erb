@@ -10,12 +10,21 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <div class="body-wrapper">
-      <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+        <%= yield %>
+        </div>
+        <div class="col"></div>
+      </div>
     </div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzpDFH5ZuA2wKEHTy-392ZRz_Hk9XXGSc&libraries=places&callback=initMap" type="text/javascript" data-turbolinks-eval="false"></script>
   </body>

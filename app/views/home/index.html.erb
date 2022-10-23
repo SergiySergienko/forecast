@@ -9,7 +9,7 @@
 <% end %>
 <%= form_with url: root_path, method: :get do |form| %>
     <%= form.text_field :address, id: 'gmaps-input-address', value: params[:address] %>
-    <%= form.submit "Search" %>
+    <%= form.submit "Search", class: "btn btn-success" %>
 <% end %>
 <hr/>
 <% if @forecast_data %>
