@@ -1,0 +1,9 @@
+<div class="form-group">
+  <%= form_with url: root_path, method: :get do |form| %>
+    <%= form.select :api_type, options_for_select({"Today": :today, "Five days": :five_days}, (params[:api_type] || :today)), class: 'form-control' %>
+    <div class="input-group mb-3">
+      <%= form.text_field :address, id: 'gmaps-input-address', value: params[:address], class: "form-control" %>
+      <%= form.submit "Search", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

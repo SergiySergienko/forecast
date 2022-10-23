@@ -1,0 +1,17 @@
+<h4><%= @formatted_address %></h4>
+<h6 class="mb-2 text-muted">Fetched from <%= (@cache_flag ? 'cache' : 'API') %></h6>
+<% @forecast_data.each do |forecast| %>
+  <div class="card mb-3">
+    <div class="card-header"><%= forecast[:dt] %></div>
+    <div class="card-body">
+      <h4 class="card-title"><%= forecast[:temp] %> °F</h4>
+      <p class="card-text">
+      <ul>
+        <li>Min temp: <%= forecast[:temp_min] %> °F</li>
+        <li>Max temp: <%= forecast[:temp_max] %> °F</li>
+        <li>Feels like: <%= forecast[:feels_like] %> °F</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+<% end %>

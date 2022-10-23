@@ -1,8 +1,6 @@
 module ForecastApiIntegrations
   class OpenWeather
 
-    Representor = Struct.new(:main, :temp, :temp_min, :temp_max, :feels_like, :cache_flag)
-
     API_KEY = Rails.configuration.open_weather['api_key']
     API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
@@ -18,24 +16,23 @@ module ForecastApiIntegrations
       parse_response(response.read_body)
     end
 
-    # ?lat={lat}&lon={lon}&appid={API key}
     def self.get_api_url(lat, lon, api_key)
-      uri = URI(API_BASE_URL)
+      uri = URI(self::API_BASE_URL)
       uri.query = { lat: lat, lon: lon, appid: api_key }.to_query
       uri
     end
 
     def self.parse_response(json_data)
-
       data = JSON.parse(json_data)
       result = {}
 
+      result[:dt] = DateTime.now.to_s
       result[:main] = data['weather'].first['main']
       result[:temp] = data['main']['temp']
       result[:temp_min] = data['main']['temp_min']
       result[:temp_max] = data['main']['temp_max']
       result[:feels_like] = data['main']['feels_like']
-      result
+      [result]
     end
   end
 end

@@ -17,13 +17,19 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">ForecastTest</a>
+      </div>
+    </nav>
+
     <div class="container">
       <div class="row">
-        <div class="col"></div>
-        <div class="col-6">
-        <%= yield %>
+        <div class="col">
+          <div class="mx-auto">
+            <%= yield %>
+          </div>
         </div>
-        <div class="col"></div>
       </div>
     </div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzpDFH5ZuA2wKEHTy-392ZRz_Hk9XXGSc&libraries=places&callback=initMap" type="text/javascript" data-turbolinks-eval="false"></script>
