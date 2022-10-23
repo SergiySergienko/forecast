@@ -1,7 +1,4 @@
 class HomeController < ApplicationController
-
-    Representer = Struct.new(:dt, :main, :temp, :temp_min, :temp_max, :feels_like)
-
     before_action :set_start_time
 
     def set_start_time

@@ -8,9 +8,10 @@ module Modifiers
       data[:cache_flag] = false
       _data = data[:api_klass].fetch(data[:address_data][:coordinates])
       data[:forecast_data] = _data
-      Rails.cache.write(data[:address_data][:postal_code], _data, expires_in: CACHE_EXPIRATION_TIME)
+      Rails.cache.write(get_cache_key(data[:address_data][:postal_code], data[:api_klass]), _data, expires_in: CACHE_EXPIRATION_TIME)
 
       data
     end
+
   end
 end

@@ -19,5 +19,9 @@ module ForecastApiIntegrations
       result[:feels_like] = data['main']['feels_like']
       result
     end
+
+    def self.get_cache_prefix
+      'oweather_five'
+    end
   end
 end
