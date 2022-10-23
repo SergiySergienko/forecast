@@ -1,4 +1,4 @@
 development:
-  api_key: AIzaSyDzpDFH5ZuA2wKEHTy-392ZRz_Hk9XXGSc
+  api_key: <%= ENV.fetch("G_MAPS_API") %>
 production:
-  api_key: AIzaSyDzpDFH5ZuA2wKEHTy-392ZRz_Hk9XXGSc
+  api_key: <%= ENV.fetch("G_MAPS_API") %>

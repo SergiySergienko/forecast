@@ -1,6 +1,6 @@
 module Modifiers
   class GetForecastDataApi < Base
-    CACHE_EXPIRATION_TIME = 10.seconds
+    CACHE_EXPIRATION_TIME = 30.minutes
 
     def handle(data)
       return data if data.has_key?(:forecast_data)

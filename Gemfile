@@ -42,7 +42,7 @@ gem "bootsnap", require: false
 gem "geocoder"
 
 # Use Sass to process CSS
-gem "sassc-rails"
+# gem "sassc-rails"
 
 gem "jsbundling-rails"
 gem "cssbundling-rails"
@@ -65,6 +65,8 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "rspec-rails"
+  gem "faker"
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
