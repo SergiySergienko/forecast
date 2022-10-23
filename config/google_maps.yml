@@ -1,4 +1,6 @@
 development:
-  api_key: <%= ENV.fetch("G_MAPS_API") %>
+  api_key: <%= ENV.fetch("G_MAPS_API", '') %>
 production:
-  api_key: <%= ENV.fetch("G_MAPS_API") %>
+  api_key: <%= ENV.fetch("G_MAPS_API", '') %>
+test:
+  api_key: ''
